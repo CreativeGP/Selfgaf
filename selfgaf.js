@@ -126,7 +126,7 @@ Gaf.prototype.get_root = function() {
     return this.root;
 };
 
-Gaf.prototype.draw_rectangle = function(x, y, w, h) {
+Gaf.prototype.draw_rectangle = function(x, y, w, h, col="black") {
     var id = "rect"+this.entities_count;
     this.root.append("<div id='"+id+"'></div>");
     $("#"+id).css("position", "absolute");
@@ -134,8 +134,9 @@ Gaf.prototype.draw_rectangle = function(x, y, w, h) {
     $("#"+id).css("height", h+"px");
     $("#"+id).css("top", y+"px");
     $("#"+id).css("left", x+"px");
-    $("#"+id).css("background-color", "black");
+    $("#"+id).css("background-color", col);
     ++this.entities_count;
+    return $("#"+id);
 };
 
 Gaf.prototype.draw_ellipse = function(x, y, w, h, col="black") {
